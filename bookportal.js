@@ -1,3 +1,5 @@
+import { question } from "readline-sync";
+
 let books = [{
     id: 101,
     name: "lord of rings",
