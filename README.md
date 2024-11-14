@@ -7,7 +7,7 @@ created book portal project to:
 
 project includes:
 1) Interface -
-  1) create one list / array containing book details (obj) to implement a book store --> 
+  create one list / array containing book details (obj) to implement a book store --> 
   
   book obj structure -- {
   	   name: "string"
@@ -18,9 +18,9 @@ project includes:
          
   operations need to be performed in book store --> 
   options need to be shown to user 
-  1) show available books to users
-  2) add book
-  3) show cart
+  a) show available books to users
+  b) add book
+  c) show cart
    
 2) Use case 1 - 
   show available books to users --> 
@@ -64,19 +64,19 @@ project includes:
   here if user select this option then 1st check if we have anything in cart or not. If not then display cart empty & display main menu again.
   If cart is not empty then show the below menu
   
-  1) increase quantity
-  2) decrease quantity
-  3) remove 
+  a) increase quantity
+  b) decrease quantity
+  c) remove 
   
   here for all 3 option u have to ask id from user
   
-  1) increase quantity -
+  i) increase quantity -
   	1st check if enter id is there in cart or not. If it is there then take new quantity from user. Add that user given quantity in existing book obj in cart list & substract it from booklist qunatity
   	
-  2) decrease -
+  ii) decrease -
   	same like above one but here decrease / substract user entered quantity of book from cart list & increase in booklist
   	
-  3) remove -
+  iii) remove -
   	remove the entire obj from cart list & add that qunatity back to booklist bookobj
   	
   	
