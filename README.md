@@ -19,9 +19,9 @@ created book portal project to:
   operations need to be performed in book store --> 
   options need to be shown to user 
   
-  `a) show available books to users
-  b) add book
-  c) show cart`
+  * show available books to users
+  * add book
+  * show cart
    
 ## 2) Use case 1 - 
   show available books to users --> 
@@ -67,18 +67,18 @@ created book portal project to:
   here if user select this option then 1st check if we have anything in cart or not. If not then display cart empty & display main menu again.
   If cart is not empty then show the below menu
   
- `a) increase quantity
-  b) decrease quantity
-  c) remove `
+  * increase quantity
+  * decrease quantity
+  * remove 
   
   here for all 3 option u have to ask id from user
   
-  `i) increase quantity -
+  * increase quantity -
   	1st check if enter id is there in cart or not. If it is there then take new quantity from user. Add that user given quantity in existing book obj in cart list & substract it from booklist qunatity
-  ii) decrease -
+  * decrease -
   	same like above one but here decrease / substract user entered quantity of book from cart list & increase in booklist
-  iii) remove -
-  	remove the entire obj from cart list & add that qunatity back to booklist bookobj`
+  * remove -
+  	remove the entire obj from cart list & add that qunatity back to booklist bookobj
   	
   	
   here when ur taking new quantity make sure that that much quantity is there in booklist & update the status as well (available / unavailable) 	
