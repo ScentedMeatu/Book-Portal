@@ -14,28 +14,28 @@ let books = [{ id: 101, name: "lord of rings", price: 4000, status: 'available',
 let cart = [];
 
 function display() {
-    console.log(`+-----+------------------------------------+-------+-----------+----------+
-| id  | name                               | price | status    | quantity |
-+-----+------------------------------------+-------+-----------+----------+`);
+    console.log(`+-----+------------------------------------+-------+-------------+----------+
+| id  | name                               | price | status      | quantity |
++-----+------------------------------------+-------+-------------+----------+`);
 
     for (let book of books) {
-        console.log(`| ${String(book.id).padEnd(3, ' ')} | ${book.name.padEnd(34, ' ')} | ${String(book.price).padEnd(5, ' ')} | ${book.status.padEnd(9, ' ')} | ${String(book.quantity).padEnd(8, ' ')} |`);
+        console.log(`| ${String(book.id).padEnd(3, ' ')} | ${book.name.padEnd(34, ' ')} | ${String(book.price).padEnd(5, ' ')} | ${book.status.padEnd(11, ' ')} | ${String(book.quantity).padEnd(8, ' ')} |`);
     }
 
-    console.log("+-----+------------------------------------+-------+-----------+----------+");
+    console.log("+-----+------------------------------------+-------+-------------+----------+");
 }
 
-function addBook(uid) {
+function addBook(uid, quan) {
     let index = 0;
     for (let book of books) {
         if (uid == book.id) {
             if (book.status === 'available') {
-                book.quantity--;
+                if (book.quantity >= quan) { book.quantity-= quan } else { console.log('\nthe quantity exceeds available quantity'); return; }
                 if (book.quantity === 0)
                     book.status = 'unavailable';
                 for (let i = 0; i < cart.length; i++) {
                     if (cart[i].id === book.id) {
-                        cart[i].quantity++;
+                        cart[i].quantity+= quan;
                         cart[i].total_price = cart[i].quantity * cart[i].price;
                         return;
                     }
@@ -45,7 +45,7 @@ function addBook(uid) {
                     id: book.id,
                     name: book.name,
                     price: book.price,
-                    quantity: 1,
+                    quantity: quan,
                     total_price: book.price
                 });
                 return;
@@ -72,7 +72,7 @@ function displayCart() {
             grandTotal += cart[i].total_price;
         }
         console.log(`+-----+------------------------------------+-------+----------+-------------+
-| grand total                                                 | ${String(grandTotal).padEnd(11, ' ')} |
+| cart total                                                  | ${String(grandTotal).padEnd(11, ' ')} |
 +-------------------------------------------------------------+-------------+`);
     }
     else {
@@ -87,7 +87,9 @@ while (true) {
         case "1": display(); break;
         case "2": console.log("\nEnter the ID of the book need to be add");
             let id = question();
-            addBook(id);
+            console.log("\nEnter the number of the books need to be add");
+            let quan = question();
+            addBook(id, quan);
             break;
         case "3": displayCart(); break;
         default: console.log("Invalid Option"); break;
