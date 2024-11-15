@@ -18,6 +18,7 @@ created book portal project to:
          
   operations need to be performed in book store --> 
   options need to be shown to user 
+  
   `a) show available books to users
   b) add book
   c) show cart`
@@ -49,14 +50,16 @@ created book portal project to:
   	
   ----------------------------------------------------------------------------------------------------------------------------	
   
-  cart list structure can be -- `[
-                                  {
-                                   book name: "",
-                                   price: number,
-                                   quantity: number,
-                                   total price: number
-                                  }
-                                ]`
+  cart list structure can be -- 
+  
+  `[
+    {
+     book name: "",
+     price: number,
+     quantity: number,
+     total price: number
+    }
+   ]`
 
 ## 5) Use case 4 -
   update cart
@@ -64,7 +67,7 @@ created book portal project to:
   here if user select this option then 1st check if we have anything in cart or not. If not then display cart empty & display main menu again.
   If cart is not empty then show the below menu
   
- ` a) increase quantity
+ `a) increase quantity
   b) decrease quantity
   c) remove `
   
