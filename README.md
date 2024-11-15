@@ -9,12 +9,13 @@ created book portal project to:
 ## 1) Interface -
   create one list / array containing book details (obj) to implement a book store --> 
   
-  `book obj structure -- {
-  	   name: "string"
-  	   price: number
-  	   status: "available" / "unavailable" --> string
-  	   quantity: number
-         }`
+  book obj structure -- 
+  `{
+  	 name: "string"
+  	 price: number
+  	 status: "available" / "unavailable" --> string
+  	 quantity: number
+    }`
          
   operations need to be performed in book store --> 
   options need to be shown to user 
