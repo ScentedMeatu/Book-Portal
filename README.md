@@ -12,6 +12,7 @@ created book portal project to:
   book obj structure -- 
   
  > `{
+     id: number 
   	 name: "string"
   	 price: number
   	 status: "available" / "unavailable" --> string
@@ -56,6 +57,7 @@ created book portal project to:
   
  > `[
     {
+     id: number 
      book name: "",
      price: number,
      quantity: number,
