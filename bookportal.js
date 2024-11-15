@@ -30,12 +30,19 @@ function addBook(uid, quan) {
     for (let book of books) {
         if (uid == book.id) {
             if (book.status === 'available') {
-                if (book.quantity >= quan) { book.quantity-= quan } else { console.log('\nthe quantity exceeds available quantity'); return; }
+                if (book.quantity >= quan) { 
+                    book.quantity-= Number(quan) 
+                } else { 
+                    console.log('\nthe quantity exceeds available quantity \ngive new value'); 
+                    addBook(uid, question()); 
+                    return; 
+                }
+                
                 if (book.quantity === 0)
                     book.status = 'unavailable';
                 for (let i = 0; i < cart.length; i++) {
                     if (cart[i].id === book.id) {
-                        cart[i].quantity+= quan;
+                        cart[i].quantity+= Number(quan);
                         cart[i].total_price = cart[i].quantity * cart[i].price;
                         return;
                     }
@@ -45,7 +52,7 @@ function addBook(uid, quan) {
                     id: book.id,
                     name: book.name,
                     price: book.price,
-                    quantity: quan,
+                    quantity: Number(quan),
                     total_price: book.price
                 });
                 return;
