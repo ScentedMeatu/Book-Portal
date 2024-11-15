@@ -10,6 +10,7 @@ created book portal project to:
   create one list / array containing book details (obj) to implement a book store --> 
   
   book obj structure -- 
+  
   `{
   	 name: "string"
   	 price: number
