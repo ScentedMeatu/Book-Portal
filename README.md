@@ -1,4 +1,4 @@
-#Book-Portal
+# Book-Portal
 
 created book portal project to:
 1) learn javascript
@@ -6,7 +6,7 @@ created book portal project to:
 3) implement the known ideas and logic aiming better performance
 
 project includes:
-##1) Interface -
+## 1) Interface -
   create one list / array containing book details (obj) to implement a book store --> 
   
   book obj structure -- {
@@ -22,7 +22,7 @@ project includes:
   b) add book
   c) show cart
    
-##2) Use case 1 - 
+## 2) Use case 1 - 
   show available books to users --> 
   	here you have to show all list items
   	
@@ -32,7 +32,7 @@ project includes:
   list --> while adding that book in list you have to pass quantity as 1 
   -- once you add that book cart you have to update the quantity in book list -- like you have to decrease the quantity by one & update the same in list 
 
-##3) Use case 2 -
+## 3) Use case 2 -
   show available books :-
   	here after each operation whenever user want to see available books..show them list with latest quantity...once quantity reaches 0 change status to unavailable	
   	
@@ -42,7 +42,7 @@ project includes:
   show cart -->
   	here now you have to calculate price of book according to quantity of each book & also calculate total cart value & display book name, price, quantity, total price & at last line total cart value
    
-##4) Use case 3 - 
+## 4) Use case 3 - 
   add book --> 
   	here while taking quantity you have to check if that much quantity is available or not --> if available directly add to cart ---> else show one message for available quantity --> & take new quantity
   	
@@ -58,7 +58,7 @@ project includes:
                                   }
                                 ]
 
-##5) Use case 4 -
+## 5) Use case 4 -
   update cart
   
   here if user select this option then 1st check if we have anything in cart or not. If not then display cart empty & display main menu again.
