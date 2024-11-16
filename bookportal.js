@@ -1,4 +1,4 @@
-import { question } from "readline-sync";
+import { question, questionNewPassword } from "readline-sync";
 
 let books = [{ id: 101, name: "lord of rings", price: 4000, status: 'available', quantity: 10 },
 { id: 102, name: "harry potter", price: 2500, status: 'available', quantity: 10 },
@@ -30,19 +30,19 @@ function addBook(uid, quan) {
     for (let book of books) {
         if (uid == book.id) {
             if (book.status === 'available') {
-                if (book.quantity >= quan) { 
-                    book.quantity-= Number(quan) 
-                } else { 
-                    console.log('\nthe quantity exceeds available quantity \ngive new value'); 
-                    addBook(uid, question()); 
-                    return; 
+                if (book.quantity >= quan) {
+                    book.quantity -= Number(quan)
+                } else {
+                    console.log('\nthe quantity exceeds available quantity \ngive new value');
+                    addBook(uid, question());
+                    return;
                 }
-                
+
                 if (book.quantity === 0)
                     book.status = 'unavailable';
                 for (let i = 0; i < cart.length; i++) {
                     if (cart[i].id === book.id) {
-                        cart[i].quantity+= Number(quan);
+                        cart[i].quantity += Number(quan);
                         cart[i].total_price = cart[i].quantity * cart[i].price;
                         return;
                     }
@@ -68,6 +68,62 @@ function addBook(uid, quan) {
     console.log("Invalid ID");
 }
 
+function removeBook(uid, quan) {
+    let index = 0;
+    for (let book of cart) {
+        if (uid == book.id) {
+            if (quan === 'max')
+                quan = `${book.quantity}`;
+            if (book.quantity >= quan) {
+                book.quantity -= Number(quan)
+            } else {
+                console.log('\nthe quantity exceeds available quantity \ngive new value');
+                removeBook(uid, question());
+                return;
+            }
+            for (let i = 0; i < books.length; i++) {
+                if (books[i].id === book.id) {
+                    books[i].quantity += Number(quan);
+                }
+            }
+            if (book.quantity === 0) {
+                cart.splice(index, 1);
+                return;
+            }
+            cart[index].total_price = cart[index].quantity * cart[index].price;
+            return;
+
+        }
+        index++;
+    }
+    console.log("Invalid ID");
+}
+
+function updateCart() {
+    if (cart.length !== 0) {
+        console.log('select the book');
+        let bookid = question();
+        for (let i = 0; i < cart.length; i++) {
+            if (cart[i].id == bookid) {
+                console.log('\n1) increase quantity\n2) decrease quantity\n3) remove');
+                let option = question();
+                switch (option) {
+                    case "1": console.log("enter the quantity");
+                        addBook(bookid, question()); break;
+                    case "2": console.log("enter the quantity");
+                        removeBook(bookid, question()); break;
+                    case "3": removeBook(bookid, 'max'); break;
+                    default: console.log('Invalid');
+                }
+                return;
+            }
+        }
+        console.log('book doesnt exist in cart');
+    } else {
+        console.log('cart empty');
+    }
+}
+
 function displayCart() {
     if (cart.length !== 0) {
         let grandTotal = 0;
@@ -88,7 +144,7 @@ function displayCart() {
 }
 
 while (true) {
-    console.log("1) show available books \n2) add book \n3) show cart");
+    console.log("1) show available books \n2) add book \n3) show cart \n4) update cart");
     const opt = question();
     switch (opt) {
         case "1": display(); break;
@@ -99,6 +155,7 @@ while (true) {
             addBook(id, quan);
             break;
         case "3": displayCart(); break;
+        case "4": updateCart(); break;
         default: console.log("Invalid Option"); break;
     }
 }
